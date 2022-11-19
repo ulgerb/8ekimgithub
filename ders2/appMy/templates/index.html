@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>Anasayfa</h2>
+
+    <img src="{% static 'img/car2.webp' %}" alt="">
+    <br><hr><br>
+    {% for proje in projeler %}
+    
+    {% if proje.title == 'OTO Galeri' %}
+        <h3 style="color: rgb(138, 138, 216);">{{ proje.title }}</h3>
+    {% else %}
+        <h3>{{ proje.title }}</h3>
+    {% endif %}
+        <img src="{{ proje.image.url }}" alt="">
+        <p>{{ proje.detay }}</p>
+        <p>{{ proje.maliyet }}</p>
+        <p style="color: rgba(255, 255, 255, 0.8);">{{ proje.proje_user }}</p>
+        <hr><br>
+    {% endfor %}
+        
+</body>
+</html>
